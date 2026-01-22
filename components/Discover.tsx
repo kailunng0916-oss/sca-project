@@ -108,144 +108,158 @@ export default function Discover() {
   };
 
   return (
-    <section className="space-y-4">
-      <div className="bg-gradient-to-r from-white to-emerald-50 rounded-3xl border border-emerald-200/50 p-6 shadow-xl">
-        <div className="flex items-start justify-between gap-3">
+    <section className="space-y-6">
+      <div className="bg-gradient-to-r from-gray-900/80 to-black/80 rounded-3xl border border-gray-800/50 p-8 shadow-2xl backdrop-blur-sm">
+        <div className="flex items-start justify-between gap-4">
           <div>
-            <h2 className="font-bold text-xl bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">🌍 Discover Projects</h2>
-            <p className="text-sm text-slate-600 mt-2">
-              Find regenerative actions in your destination. Tap to join, donate, or log impact.
+            <h2 className="font-black text-3xl bg-gradient-to-r from-emerald-400 via-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">
+              🌍 Discover Amazing Projects
+            </h2>
+            <p className="text-gray-300 text-lg">
+              Find regenerative actions in your destination. Join, donate, or log your impact. 🌱
             </p>
           </div>
-          <span className="text-[11px] px-3 py-2 rounded-full bg-gradient-to-r from-emerald-400 to-green-500 text-white font-semibold shadow-md">
-            📒 Ledger ON
+          <span className="text-sm px-4 py-2 rounded-full bg-gradient-to-r from-emerald-500 to-green-600 text-white font-bold shadow-xl">
+            📒 Ledger Active
           </span>
         </div>
 
-        <div className="mt-4 grid grid-cols-1 gap-3">
-          <label className="text-sm">
-            <span className="text-slate-700 font-medium">🏝️ Destination</span>
+        <div className="mt-6 grid grid-cols-1 gap-4">
+          <label className="text-base">
+            <span className="text-white font-bold flex items-center gap-2">🏝️ Destination</span>
             <select
               value={appState.trip.destination}
               onChange={(e) => handleDestinationChange(e.target.value)}
-              className="mt-2 w-full px-4 py-3 rounded-2xl border border-emerald-200 focus:outline-none focus:ring-2 focus:ring-emerald-300 bg-white shadow-sm"
+              className="mt-3 w-full px-6 py-4 rounded-2xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-emerald-400 bg-gray-800/50 text-white shadow-xl backdrop-blur-sm"
             >
               {destinations.map((d) => (
-                <option key={d} value={d}>
+                <option key={d} value={d} className="bg-gray-800">
                   {d}
                 </option>
               ))}
             </select>
           </label>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <label className="text-sm">
-              <span className="text-slate-700 font-medium">🔍 Search</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <label className="text-base">
+              <span className="text-white font-bold flex items-center gap-2">🔍 Search</span>
               <input
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="mt-2 w-full px-4 py-3 rounded-2xl border border-emerald-200 focus:outline-none focus:ring-2 focus:ring-emerald-300 bg-white shadow-sm"
+                className="mt-3 w-full px-6 py-4 rounded-2xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-emerald-400 bg-gray-800/50 text-white placeholder-gray-400 shadow-xl backdrop-blur-sm"
                 placeholder="reef, cleanup, culture..."
               />
             </label>
-            <label className="text-sm">
-              <span className="text-slate-700 font-medium">🎯 Filter</span>
+            <label className="text-base">
+              <span className="text-white font-bold flex items-center gap-2">🎯 Filter</span>
               <select
                 value={tagFilter}
                 onChange={(e) => setTagFilter(e.target.value)}
-                className="mt-2 w-full px-4 py-3 rounded-2xl border border-emerald-200 focus:outline-none focus:ring-2 focus:ring-emerald-300 bg-white shadow-sm"
+                className="mt-3 w-full px-6 py-4 rounded-2xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-emerald-400 bg-gray-800/50 text-white shadow-xl backdrop-blur-sm"
               >
-                <option value="all">All</option>
-                <option value="biodiversity">Biodiversity</option>
-                <option value="waste">Waste</option>
-                <option value="water">Water</option>
-                <option value="culture">Culture</option>
-                <option value="community">Community</option>
-                <option value="carbon">Carbon</option>
+                <option value="all" className="bg-gray-800">All Categories</option>
+                <option value="biodiversity" className="bg-gray-800">🦋 Biodiversity</option>
+                <option value="waste" className="bg-gray-800">♻️ Waste</option>
+                <option value="water" className="bg-gray-800">💧 Water</option>
+                <option value="culture" className="bg-gray-800">🎭 Culture</option>
+                <option value="community" className="bg-gray-800">🤝 Community</option>
+                <option value="carbon" className="bg-gray-800">🌿 Carbon</option>
               </select>
             </label>
           </div>
         </div>
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-6">
         {filteredProjects.length === 0 ? (
-          <div className="bg-gradient-to-r from-white to-slate-50 rounded-3xl border border-slate-200 p-6 shadow-lg text-center">
-            <div className="text-4xl mb-2">🌊</div>
-            <div className="font-semibold text-lg">No projects found</div>
-            <div className="text-sm text-slate-600 mt-2">
-              Try changing search/filter or pick another destination.
+          <div className="bg-gradient-to-r from-gray-900/80 to-black/80 rounded-3xl border border-gray-800/50 p-8 shadow-2xl text-center backdrop-blur-sm">
+            <div className="text-6xl mb-4">🌊</div>
+            <div className="font-bold text-2xl text-white mb-2">No Projects Found</div>
+            <div className="text-gray-400 text-lg">
+              Try changing your search, filter, or destination. Let's find your perfect regenerative adventure! ✨
             </div>
           </div>
         ) : (
-          filteredProjects.map((project) => (
-            <article
-              key={project.id}
-              className="bg-gradient-to-r from-white to-emerald-50 rounded-3xl border border-emerald-200/50 p-6 shadow-xl hover:shadow-2xl transition-all duration-300"
-            >
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <div className="font-bold text-lg text-emerald-800">{project.name}</div>
-                  <div className="text-sm text-slate-600 mt-1">
-                    📍 {project.destination} · 🏢 Host: {project.host}
+          <div className="grid grid-cols-1 gap-6">
+            {filteredProjects.map((project) => (
+              <article
+                key={project.id}
+                className="bg-gradient-to-r from-gray-900/90 to-black/90 rounded-3xl border border-gray-800/50 p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-[1.02] backdrop-blur-sm"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex-1">
+                    <div className="font-black text-2xl text-white mb-2">{project.name}</div>
+                    <div className="text-gray-300 text-lg mb-4 flex items-center gap-2">
+                      📍 {project.destination} · 🏢 {project.host}
+                    </div>
+                    <div className="text-gray-400 mb-4 line-clamp-2">{project.description}</div>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tags.map((tag) => (
+                        <span key={tag} className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-sm font-medium border border-emerald-500/30">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <span
+                    className={`text-sm px-4 py-2 rounded-full font-bold shadow-xl ${
+                      project.verified
+                        ? 'bg-gradient-to-r from-emerald-500 to-green-600 text-white'
+                        : 'bg-gradient-to-r from-gray-600 to-gray-700 text-white'
+                    }`}
+                  >
+                    {project.verified ? '✅ Verified' : '⏳ Unverified'}
+                  </span>
+                </div>
+              </div>
+
+                </div>
+
+                <div className="mt-6 text-gray-300 text-base">{project.description}</div>
+
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span key={tag} className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-sm font-medium border border-emerald-500/30">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="mt-6 rounded-2xl bg-gray-800/50 border border-gray-700/50 p-4 backdrop-blur-sm">
+                  <div className="text-gray-300 text-sm">
+                    <b className="text-white">Next slots:</b> {project.nextSlots}
+                  </div>
+                  <div className="text-gray-400 text-sm mt-2">
+                    Suggested: {project.suggestedMetrics.hours}h · {project.suggestedMetrics.wasteKg}kg · {project.suggestedMetrics.natureUnits} units
+                  </div>
+                  <div className="text-gray-400 text-sm mt-2">
+                    <b className="text-white">Counts as impact:</b> {project.whatCounts}
                   </div>
                 </div>
-                <span
-                  className={`text-xs px-3 py-2 rounded-full font-semibold shadow-md ${
-                    project.verified
-                      ? 'bg-gradient-to-r from-emerald-400 to-green-500 text-white'
-                      : 'bg-gradient-to-r from-slate-400 to-gray-500 text-white'
-                  }`}
-                >
-                  {project.verified ? '✅ Verified' : '⏳ Unverified'}
-                </span>
-              </div>
 
-              <div className="mt-2 text-sm text-slate-700">{project.description}</div>
-
-              <div className="mt-3 flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <span key={tag} className={`text-[11px] px-2 py-1 rounded-lg ${badge(tag)}`}>
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              <div className="mt-3 rounded-2xl bg-slate-50 border border-slate-200 p-3">
-                <div className="text-xs text-slate-700">
-                  <b>Next slots:</b> {project.nextSlots}
+                <div className="mt-6 grid grid-cols-3 gap-3">
+                  <button
+                    onClick={() => openModal('join', project)}
+                    className="px-4 py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white font-bold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+                  >
+                    🤝 Join
+                  </button>
+                  <button
+                    onClick={() => openModal('donate', project)}
+                    className="px-4 py-4 rounded-2xl bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+                  >
+                    💰 Donate
+                  </button>
+                  <button
+                    onClick={() => openModal('log', project)}
+                    className="px-4 py-4 rounded-2xl bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white font-bold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+                  >
+                    📝 Log
+                  </button>
                 </div>
-                <div className="text-xs text-slate-600 mt-1">
-                  Suggested: {project.suggestedMetrics.hours}h · {project.suggestedMetrics.wasteKg}
-                  kg · {project.suggestedMetrics.natureUnits} units
-                </div>
-                <div className="text-xs text-slate-600 mt-1">
-                  <b>Counts as impact:</b> {project.whatCounts}
-                </div>
-              </div>
-
-              <div className="mt-3 grid grid-cols-3 gap-2">
-                <button
-                  onClick={() => openModal('join', project)}
-                  className="px-3 py-3 rounded-2xl bg-emerald-600 text-white hover:bg-emerald-700 text-xs font-semibold"
-                >
-                  Join
-                </button>
-                <button
-                  onClick={() => openModal('donate', project)}
-                  className="px-3 py-3 rounded-2xl bg-white border border-slate-200 hover:bg-slate-100 text-xs font-semibold"
-                >
-                  Donate
-                </button>
-                <button
-                  onClick={() => openModal('log', project)}
-                  className="px-3 py-3 rounded-2xl bg-white border border-slate-200 hover:bg-slate-100 text-xs font-semibold"
-                >
-                  Log
-                </button>
-              </div>
-            </article>
-          ))
+              </article>
+            ))}
+          </div>
         )}
       </div>
 
