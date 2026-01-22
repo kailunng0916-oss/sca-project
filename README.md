@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RegenTrip - Regenerative Tourism Impact Tracker
+
+A mobile-first web application for tracking and verifying regenerative tourism impact. Built with Next.js, React, TypeScript, and Tailwind CSS.
+
+## Features
+
+- **Discover Projects**: Browse regenerative tourism projects by destination
+- **Impact Dashboard**: Track volunteer hours, waste removed, trees/corals planted, and donations
+- **Trip Planner**: Plan trips and get activity suggestions
+- **Profile Management**: Simulate different user roles (traveler, community lead, operator)
+- **Local Ledger**: All impact data stored locally with export functionality
+- **Anti-Greenwashing**: Transparent tracking with "what counts" criteria for each project
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+
+```bash
+npm install
+```
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run build
+npm start
+```
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The easiest way to deploy this app is using [Vercel](https://vercel.com):
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Push this repository to GitHub
+2. Import the project in Vercel
+3. Vercel will automatically detect Next.js and configure the build
+4. Deploy!
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
+
+## Technology Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **UI**: React 19
+- **Styling**: Tailwind CSS
+- **Language**: TypeScript
+- **State Management**: React Context + Hooks
+- **Storage**: Browser localStorage
+
+## Project Structure
+
+```
+regen-trip/
+├── app/                  # Next.js app directory
+│   ├── layout.tsx       # Root layout with providers
+│   ├── page.tsx         # Main page with tab navigation
+│   └── globals.css      # Global styles
+├── components/          # React components
+│   ├── Header.tsx
+│   ├── Navigation.tsx
+│   ├── Modal.tsx
+│   ├── Discover.tsx
+│   ├── Dashboard.tsx
+│   ├── TripPlanner.tsx
+│   └── Profile.tsx
+├── context/            # React context
+│   └── AppContext.tsx  # App state management
+├── types/              # TypeScript types
+│   └── index.ts
+├── lib/                # Utility functions
+│   └── utils.ts
+└── public/            # Static assets
+```
+
+## License
+
+MIT
