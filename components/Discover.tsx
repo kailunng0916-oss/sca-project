@@ -108,27 +108,27 @@ export default function Discover() {
   };
 
   return (
-    <section className="space-y-3">
-      <div className="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm">
+    <section className="space-y-4">
+      <div className="bg-gradient-to-r from-white to-emerald-50 rounded-3xl border border-emerald-200/50 p-6 shadow-xl">
         <div className="flex items-start justify-between gap-3">
           <div>
-            <h2 className="font-semibold text-lg">Discover Projects</h2>
-            <p className="text-sm text-slate-600 mt-1">
+            <h2 className="font-bold text-xl bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">🌍 Discover Projects</h2>
+            <p className="text-sm text-slate-600 mt-2">
               Find regenerative actions in your destination. Tap to join, donate, or log impact.
             </p>
           </div>
-          <span className="text-[11px] px-2 py-1 rounded-lg bg-emerald-100 text-emerald-800">
-            Ledger ON
+          <span className="text-[11px] px-3 py-2 rounded-full bg-gradient-to-r from-emerald-400 to-green-500 text-white font-semibold shadow-md">
+            📒 Ledger ON
           </span>
         </div>
 
-        <div className="mt-3 grid grid-cols-1 gap-2">
-          <label className="text-xs">
-            <span className="text-slate-700">Destination</span>
+        <div className="mt-4 grid grid-cols-1 gap-3">
+          <label className="text-sm">
+            <span className="text-slate-700 font-medium">🏝️ Destination</span>
             <select
               value={appState.trip.destination}
               onChange={(e) => handleDestinationChange(e.target.value)}
-              className="mt-1 w-full px-3 py-2 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-200"
+              className="mt-2 w-full px-4 py-3 rounded-2xl border border-emerald-200 focus:outline-none focus:ring-2 focus:ring-emerald-300 bg-white shadow-sm"
             >
               {destinations.map((d) => (
                 <option key={d} value={d}>
@@ -138,22 +138,22 @@ export default function Discover() {
             </select>
           </label>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            <label className="text-xs">
-              <span className="text-slate-700">Search</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <label className="text-sm">
+              <span className="text-slate-700 font-medium">🔍 Search</span>
               <input
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="mt-1 w-full px-3 py-2 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-200"
+                className="mt-2 w-full px-4 py-3 rounded-2xl border border-emerald-200 focus:outline-none focus:ring-2 focus:ring-emerald-300 bg-white shadow-sm"
                 placeholder="reef, cleanup, culture..."
               />
             </label>
-            <label className="text-xs">
-              <span className="text-slate-700">Filter</span>
+            <label className="text-sm">
+              <span className="text-slate-700 font-medium">🎯 Filter</span>
               <select
                 value={tagFilter}
                 onChange={(e) => setTagFilter(e.target.value)}
-                className="mt-1 w-full px-3 py-2 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-200"
+                className="mt-2 w-full px-4 py-3 rounded-2xl border border-emerald-200 focus:outline-none focus:ring-2 focus:ring-emerald-300 bg-white shadow-sm"
               >
                 <option value="all">All</option>
                 <option value="biodiversity">Biodiversity</option>
@@ -168,11 +168,12 @@ export default function Discover() {
         </div>
       </div>
 
-      <div className="space-y-3">
+      <div className="space-y-4">
         {filteredProjects.length === 0 ? (
-          <div className="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm">
-            <div className="font-medium">No projects found</div>
-            <div className="text-sm text-slate-600 mt-1">
+          <div className="bg-gradient-to-r from-white to-slate-50 rounded-3xl border border-slate-200 p-6 shadow-lg text-center">
+            <div className="text-4xl mb-2">🌊</div>
+            <div className="font-semibold text-lg">No projects found</div>
+            <div className="text-sm text-slate-600 mt-2">
               Try changing search/filter or pick another destination.
             </div>
           </div>
@@ -180,23 +181,23 @@ export default function Discover() {
           filteredProjects.map((project) => (
             <article
               key={project.id}
-              className="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm"
+              className="bg-gradient-to-r from-white to-emerald-50 rounded-3xl border border-emerald-200/50 p-6 shadow-xl hover:shadow-2xl transition-all duration-300"
             >
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <div className="font-semibold text-base">{project.name}</div>
-                  <div className="text-xs text-slate-600 mt-1">
-                    {project.destination} · Host: {project.host}
+                  <div className="font-bold text-lg text-emerald-800">{project.name}</div>
+                  <div className="text-sm text-slate-600 mt-1">
+                    📍 {project.destination} · 🏢 Host: {project.host}
                   </div>
                 </div>
                 <span
-                  className={`text-[11px] px-2 py-1 rounded-lg ${
+                  className={`text-xs px-3 py-2 rounded-full font-semibold shadow-md ${
                     project.verified
-                      ? 'bg-emerald-100 text-emerald-800'
-                      : 'bg-slate-100 text-slate-700'
+                      ? 'bg-gradient-to-r from-emerald-400 to-green-500 text-white'
+                      : 'bg-gradient-to-r from-slate-400 to-gray-500 text-white'
                   }`}
                 >
-                  {project.verified ? 'Verified' : 'Unverified'}
+                  {project.verified ? '✅ Verified' : '⏳ Unverified'}
                 </span>
               </div>
 
